@@ -10,7 +10,22 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- =====================================================
+       PAGE TITLE
+  ===================================================== -->
+
   <title>Shinjuku Capsule Hotel</title>
+
+
+  <!-- =====================================================
+       FAVICON
+  ===================================================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="logo.png"
+  >
 
 
   <style>
@@ -149,10 +164,10 @@
 
       width: 100%;
 
-      height: 70px;
+      height: 90px;
 
       background:
-        rgba(20, 20, 20, 0.94);
+        rgba(15, 15, 15, 0.94);
 
       backdrop-filter:
         blur(15px);
@@ -164,35 +179,191 @@
 
       align-items: center;
 
-      justify-content: space-between;
-
-      padding:
-        0 35px;
+      justify-content: center;
 
       z-index: 5000;
 
       box-shadow:
         0 5px 25px
         rgba(0, 0, 0, 0.18);
+
+      transition:
+
+        opacity
+        0.6s
+        ease,
+
+        transform
+        0.6s
+        ease;
     }
 
 
 
     /* =====================================================
-       HOTEL LOGO
+       NAVIGATION HIDDEN WHEN SCROLLING DOWN
     ===================================================== */
 
-    .logo {
+    .top-nav.nav-hidden {
 
-      color: white;
+      opacity: 0;
 
-      font-size: 18px;
+      transform:
+        translateY(-30px);
 
-      font-weight: bold;
+      pointer-events: none;
+    }
 
-      letter-spacing: 2px;
 
-      white-space: nowrap;
+
+    /* =====================================================
+       NAVIGATION CONTENT
+    ===================================================== */
+
+    .nav-container {
+
+      width: 100%;
+
+      max-width: 1000px;
+
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+
+      padding:
+        0 25px;
+    }
+
+
+
+    /* =====================================================
+       LEFT NAVIGATION
+    ===================================================== */
+
+    .nav-left {
+
+      position: absolute;
+
+      left: 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 5px;
+    }
+
+
+
+    /* =====================================================
+       RIGHT NAVIGATION
+    ===================================================== */
+
+    .nav-right {
+
+      position: absolute;
+
+      right: 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 5px;
+    }
+
+
+
+    /* =====================================================
+       CENTER LOGO
+    ===================================================== */
+
+    .center-logo {
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      width: 150px;
+
+      height: 80px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      opacity: 0;
+
+      animation:
+        logoFadeIn
+        1.2s
+        ease
+        0.3s
+        forwards;
+
+      transition:
+
+        opacity
+        0.6s
+        ease,
+
+        transform
+        0.6s
+        ease;
+    }
+
+
+    .center-logo img {
+
+      width: 150px;
+
+      height: auto;
+
+      display: block;
+
+      object-fit: contain;
+    }
+
+
+
+    /* =====================================================
+       LOGO FADE IN
+    ===================================================== */
+
+    @keyframes logoFadeIn {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.85);
+      }
+
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%)
+          scale(1);
+      }
+
     }
 
 
@@ -201,34 +372,30 @@
        NAVIGATION LINKS
     ===================================================== */
 
-    .nav-links {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-    }
-
-
     .nav-button {
 
       border: none;
 
-      background: transparent;
+      background:
+        transparent;
 
-      color: #aaa;
+      color:
+        #aaa;
 
       padding:
         11px 18px;
 
-      border-radius: 10px;
+      border-radius:
+        10px;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      font-weight: 500;
+      font-weight:
+        500;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       transition:
 
@@ -248,7 +415,8 @@
 
     .nav-button:hover {
 
-      color: white;
+      color:
+        white;
     }
 
 
@@ -261,9 +429,11 @@
 
     .nav-button.active {
 
-      background: white;
+      background:
+        white;
 
-      color: black;
+      color:
+        black;
     }
 
 
@@ -281,7 +451,7 @@
       margin: 0 auto;
 
       padding:
-        120px
+        140px
         30px
         100px;
 
@@ -296,25 +466,33 @@
 
     .hotel-page h1 {
 
-      font-size: 44px;
+      font-size:
+        44px;
 
-      letter-spacing: 3px;
+      letter-spacing:
+        3px;
 
-      color: #111;
+      color:
+        #111;
 
-      margin-bottom: 15px;
+      margin-bottom:
+        15px;
     }
 
 
     .subtitle {
 
-      color: #777;
+      color:
+        #777;
 
-      font-size: 18px;
+      font-size:
+        18px;
 
-      line-height: 1.6;
+      line-height:
+        1.6;
 
-      margin-bottom: 65px;
+      margin-bottom:
+        65px;
     }
 
 
@@ -325,12 +503,14 @@
 
     .info-grid {
 
-      display: grid;
+      display:
+        grid;
 
       grid-template-columns:
         repeat(3, 1fr);
 
-      gap: 25px;
+      gap:
+        25px;
     }
 
 
@@ -353,9 +533,11 @@
       min-height:
         235px;
 
-      display: flex;
+      display:
+        flex;
 
-      flex-direction: column;
+      flex-direction:
+        column;
 
       justify-content:
         center;
@@ -445,7 +627,8 @@
 
     .fade-in {
 
-      opacity: 0;
+      opacity:
+        0;
 
       transform:
         translateY(50px);
@@ -464,7 +647,8 @@
 
     .fade-in.show {
 
-      opacity: 1;
+      opacity:
+        1;
 
       transform:
         translateY(0);
@@ -624,32 +808,33 @@
     @media (max-width: 768px) {
 
 
-      /* TOP NAV */
+      /* NAVIGATION */
 
       .top-nav {
 
         height:
-          62px;
+          75px;
+      }
+
+
+      .nav-container {
 
         padding:
-          0 12px;
+          0 10px;
       }
 
 
-      .logo {
+      .nav-left {
 
-        font-size:
-          13px;
-
-        letter-spacing:
-          1px;
+        left:
+          8px;
       }
 
 
-      .nav-links {
+      .nav-right {
 
-        gap:
-          2px;
+        right:
+          8px;
       }
 
 
@@ -660,11 +845,26 @@
 
         font-size:
           11px;
-
-        border-radius:
-          8px;
       }
 
+
+      /* CENTER LOGO */
+
+      .center-logo {
+
+        width:
+          100px;
+
+        height:
+          65px;
+      }
+
+
+      .center-logo img {
+
+        width:
+          100px;
+      }
 
 
       /* HOTEL PAGE */
@@ -672,7 +872,7 @@
       .hotel-page {
 
         padding:
-          95px
+          105px
           18px
           80px;
       }
@@ -699,7 +899,6 @@
         margin-bottom:
           40px;
       }
-
 
 
       /* CARDS */
@@ -738,7 +937,6 @@
       }
 
 
-
       /* ACCESS */
 
       #access {
@@ -759,7 +957,6 @@
         font-size:
           30px;
       }
-
 
 
       /* RESERVATION */
@@ -788,13 +985,6 @@
     @media (max-width: 400px) {
 
 
-      .logo {
-
-        font-size:
-          11px;
-      }
-
-
       .nav-button {
 
         padding:
@@ -802,6 +992,20 @@
 
         font-size:
           10px;
+      }
+
+
+      .center-logo {
+
+        width:
+          80px;
+      }
+
+
+      .center-logo img {
+
+        width:
+          80px;
       }
 
 
@@ -860,62 +1064,83 @@
 
     <nav class="top-nav">
 
+      <div class="nav-container">
 
-      <!-- HOTEL NAME -->
 
-      <div class="logo">
+        <!-- =================================================
+             LEFT SIDE
+        ================================================= -->
 
-        SHINJUKU CAPSULE HOTEL
+        <div class="nav-left">
+
+
+          <!-- HOME -->
+
+          <button
+            class="nav-button active"
+            onclick="goToSection('home', this)"
+          >
+
+            Home
+
+          </button>
+
+
+
+          <!-- ACCESS -->
+
+          <button
+            class="nav-button"
+            onclick="goToSection('access', this)"
+          >
+
+            Access
+
+          </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             CENTER LOGO
+        ================================================= -->
+
+        <div class="center-logo">
+
+          <img
+            src="logo.png"
+            alt="Shinjuku Capsule Hotel Logo"
+          >
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE
+        ================================================= -->
+
+        <div class="nav-right">
+
+
+          <!-- RESERVATION -->
+
+          <button
+            class="nav-button"
+            onclick="goToSection('reservation', this)"
+          >
+
+            Reservation
+
+          </button>
+
+
+        </div>
+
 
       </div>
-
-
-
-      <!-- NAVIGATION -->
-
-      <div class="nav-links">
-
-
-        <!-- HOME -->
-
-        <button
-          class="nav-button active"
-          onclick="goToSection('home', this)"
-        >
-
-          Home
-
-        </button>
-
-
-
-        <!-- ACCESS -->
-
-        <button
-          class="nav-button"
-          onclick="goToSection('access', this)"
-        >
-
-          Access
-
-        </button>
-
-
-
-        <!-- RESERVATION -->
-
-        <button
-          class="nav-button"
-          onclick="goToSection('reservation', this)"
-        >
-
-          Reservation
-
-        </button>
-
-
-      </div>
-
 
     </nav>
 
@@ -928,7 +1153,9 @@
     <main class="hotel-page">
 
 
-      <!-- HOTEL TITLE -->
+      <!-- =================================================
+           HOME
+      ================================================= -->
 
       <section id="home">
 
@@ -1163,11 +1390,15 @@
 
 
   <!-- =====================================================
-       VIDEO SCRIPT
+       MAIN JAVASCRIPT
   ===================================================== -->
 
   <script>
 
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
     const intro =
       document.getElementById(
@@ -1184,6 +1415,12 @@
     const main =
       document.getElementById(
         "main-content"
+      );
+
+
+    const navbar =
+      document.querySelector(
+        ".top-nav"
       );
 
 
@@ -1204,7 +1441,7 @@
         );
 
 
-        /* Wait for animation */
+        /* Wait for zoom animation */
 
         setTimeout(
           function () {
@@ -1222,7 +1459,7 @@
               "block";
 
 
-            /* Show first cards */
+            /* Show information */
 
             setTimeout(
               function () {
@@ -1314,9 +1551,11 @@
 
         window.scrollTo({
 
-          top: 0,
+          top:
+            0,
 
-          behavior: "smooth"
+          behavior:
+            "smooth"
 
         });
 
@@ -1417,6 +1656,69 @@
 
 
     /* =====================================================
+       NAVIGATION FADE ON SCROLL
+    ===================================================== */
+
+    let lastScrollY =
+      window.scrollY;
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+
+        const currentScrollY =
+          window.scrollY;
+
+
+
+        /* =========================================
+           SCROLLING DOWN
+        ========================================= */
+
+        if (
+          currentScrollY >
+            lastScrollY &&
+          currentScrollY >
+            100
+        ) {
+
+
+          navbar.classList.add(
+            "nav-hidden"
+          );
+
+
+        }
+
+
+
+        /* =========================================
+           SCROLLING UP
+        ========================================= */
+
+        else {
+
+
+          navbar.classList.remove(
+            "nav-hidden"
+          );
+
+
+        }
+
+
+        lastScrollY =
+          currentScrollY;
+
+
+      }
+    );
+
+
+
+    /* =====================================================
        CHANGE ACTIVE TAB WHEN SCROLLING
     ===================================================== */
 
@@ -1449,7 +1751,9 @@
 
 
 
-        /* RESERVATION */
+        /* =========================================
+           RESERVATION
+        ========================================= */
 
         if (
           reservation &&
@@ -1473,10 +1777,14 @@
             "active"
           );
 
+
         }
 
 
-        /* ACCESS */
+
+        /* =========================================
+           ACCESS
+        ========================================= */
 
         else if (
           access &&
@@ -1500,10 +1808,14 @@
             "active"
           );
 
+
         }
 
 
-        /* HOME */
+
+        /* =========================================
+           HOME
+        ========================================= */
 
         else {
 
@@ -1522,6 +1834,7 @@
           buttons[0].classList.add(
             "active"
           );
+
 
         }
 
