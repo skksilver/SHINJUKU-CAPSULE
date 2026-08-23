@@ -16,7 +16,7 @@
   <style>
 
     /* =====================================================
-       BASIC PAGE
+       BASIC RESET
     ===================================================== */
 
     * {
@@ -25,9 +25,11 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       width: 100%;
@@ -35,10 +37,14 @@
 
       background: white;
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
       overflow-x: hidden;
     }
+
 
 
     /* =====================================================
@@ -49,10 +55,11 @@
 
       position: fixed;
 
-      inset: 0;
+      top: 0;
+      left: 0;
 
       width: 100%;
-      height: 100%;
+      height: 100vh;
 
       background: black;
 
@@ -74,8 +81,9 @@
     }
 
 
+
     /* =====================================================
-       VIDEO END ZOOM ANIMATION
+       VIDEO ZOOM OUT
     ===================================================== */
 
     #intro.zoom-out {
@@ -94,19 +102,21 @@
 
         opacity: 1;
 
-        transform: scale(1);
-
+        transform:
+          scale(1);
       }
+
 
       100% {
 
         opacity: 0;
 
-        transform: scale(1.15);
-
+        transform:
+          scale(1.15);
       }
 
     }
+
 
 
     /* =====================================================
@@ -115,18 +125,151 @@
 
     #main-content {
 
+      display: none;
+
       width: 100%;
 
       min-height: 100vh;
 
       background: white;
-
-      display: none;
     }
 
 
+
     /* =====================================================
-       MAIN HOTEL PAGE
+       TOP NAVIGATION
+    ===================================================== */
+
+    .top-nav {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      height: 70px;
+
+      background:
+        rgba(20, 20, 20, 0.94);
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding:
+        0 35px;
+
+      z-index: 5000;
+
+      box-shadow:
+        0 5px 25px
+        rgba(0, 0, 0, 0.18);
+    }
+
+
+
+    /* =====================================================
+       HOTEL LOGO
+    ===================================================== */
+
+    .logo {
+
+      color: white;
+
+      font-size: 18px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      white-space: nowrap;
+    }
+
+
+
+    /* =====================================================
+       NAVIGATION LINKS
+    ===================================================== */
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+
+    .nav-button {
+
+      border: none;
+
+      background: transparent;
+
+      color: #aaa;
+
+      padding:
+        11px 18px;
+
+      border-radius: 10px;
+
+      font-size: 14px;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition:
+
+        color
+        0.3s
+        ease,
+
+        background
+        0.3s
+        ease,
+
+        transform
+        0.2s
+        ease;
+    }
+
+
+    .nav-button:hover {
+
+      color: white;
+    }
+
+
+    .nav-button:active {
+
+      transform:
+        scale(0.92);
+    }
+
+
+    .nav-button.active {
+
+      background: white;
+
+      color: black;
+    }
+
+
+
+    /* =====================================================
+       MAIN HOTEL CONTENT
     ===================================================== */
 
     .hotel-page {
@@ -138,39 +281,42 @@
       margin: 0 auto;
 
       padding:
-
-        80px
+        120px
         30px
-        150px;
+        100px;
 
       text-align: center;
     }
 
 
+
     /* =====================================================
-       HOTEL TITLE
+       TITLE
     ===================================================== */
 
     .hotel-page h1 {
 
-      font-size: 42px;
+      font-size: 44px;
 
       letter-spacing: 3px;
 
-      margin-bottom: 15px;
-
       color: #111;
+
+      margin-bottom: 15px;
     }
 
 
     .subtitle {
 
-      font-size: 18px;
-
       color: #777;
 
-      margin-bottom: 60px;
+      font-size: 18px;
+
+      line-height: 1.6;
+
+      margin-bottom: 65px;
     }
+
 
 
     /* =====================================================
@@ -188,27 +334,34 @@
     }
 
 
+
     /* =====================================================
-       INFORMATION CARDS
+       INFORMATION CARD
     ===================================================== */
 
     .info-card {
 
-      background: #f7f7f7;
+      background:
+        #f7f7f7;
 
-      padding: 35px 25px;
+      border-radius:
+        20px;
 
-      border-radius: 18px;
+      padding:
+        35px 25px;
 
-      min-height: 230px;
+      min-height:
+        235px;
 
       display: flex;
 
       flex-direction: column;
 
-      justify-content: center;
+      justify-content:
+        center;
 
-      align-items: center;
+      align-items:
+        center;
 
       transition:
 
@@ -233,56 +386,57 @@
     }
 
 
-    /* =====================================================
-       CARD ICON
-    ===================================================== */
+    .icon {
 
-    .info-card .icon {
+      font-size:
+        40px;
 
-      font-size: 40px;
-
-      margin-bottom: 15px;
+      margin-bottom:
+        15px;
     }
 
-
-    /* =====================================================
-       CARD TITLE
-    ===================================================== */
 
     .info-card h2 {
 
-      font-size: 23px;
+      font-size:
+        23px;
 
-      margin-bottom: 12px;
+      color:
+        #111;
 
-      color: #111;
+      margin-bottom:
+        12px;
     }
 
 
-    /* =====================================================
-       CARD TEXT
-    ===================================================== */
-
     .info-card p {
 
-      color: #666;
+      max-width:
+        300px;
 
-      line-height: 1.6;
+      color:
+        #666;
 
-      margin-bottom: 15px;
+      line-height:
+        1.6;
 
-      max-width: 300px;
+      margin-bottom:
+        15px;
     }
 
 
     .info-card span {
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      font-weight: bold;
+      font-weight:
+        bold;
 
-      color: #333;
+      color:
+        #333;
     }
+
 
 
     /* =====================================================
@@ -317,46 +471,58 @@
     }
 
 
+
     /* =====================================================
        ACCESS SECTION
     ===================================================== */
 
     #access {
 
-      margin-top: 100px;
+      margin-top:
+        100px;
 
       padding:
-        90px
+        90px 25px;
+
+      background:
+        #111;
+
+      color:
+        white;
+
+      border-radius:
         25px;
-
-      background: #111;
-
-      color: white;
-
-      border-radius: 25px;
     }
 
 
     #access h2 {
 
-      font-size: 34px;
+      font-size:
+        36px;
 
-      margin-bottom: 20px;
+      margin-bottom:
+        20px;
     }
 
 
     #access p {
 
-      max-width: 700px;
+      max-width:
+        700px;
 
-      margin: 0 auto;
+      margin:
+        auto;
 
-      color: #ccc;
+      color:
+        #ccc;
 
-      line-height: 1.8;
+      line-height:
+        1.8;
 
-      font-size: 16px;
+      font-size:
+        16px;
     }
+
 
 
     /* =====================================================
@@ -365,32 +531,36 @@
 
     #reservation {
 
-      margin-top: 40px;
+      margin-top:
+        50px;
 
       padding:
-        90px
-        25px;
+        90px 25px;
 
-      text-align: center;
+      text-align:
+        center;
     }
 
 
     #reservation h2 {
 
-      font-size: 34px;
+      font-size:
+        36px;
 
-      margin-bottom: 20px;
-
-      color: #111;
+      margin-bottom:
+        20px;
     }
 
 
     #reservation p {
 
-      color: #666;
+      color:
+        #666;
 
-      margin-bottom: 30px;
+      margin-bottom:
+        30px;
     }
+
 
 
     /* =====================================================
@@ -399,19 +569,23 @@
 
     .reservation-button {
 
-      display: inline-block;
+      display:
+        inline-block;
 
       padding:
-        15px
-        35px;
+        15px 38px;
 
-      background: black;
+      background:
+        #111;
 
-      color: white;
+      color:
+        white;
 
-      text-decoration: none;
+      text-decoration:
+        none;
 
-      border-radius: 30px;
+      border-radius:
+        30px;
 
       transition:
 
@@ -430,7 +604,8 @@
       transform:
         scale(1.05);
 
-      background: #333;
+      background:
+        #333;
     }
 
 
@@ -441,287 +616,199 @@
     }
 
 
-    /* =====================================================
-       MOBILE BOTTOM NAVIGATION
-    ===================================================== */
-
-    .mobile-nav {
-
-      position: fixed;
-
-      left: 50%;
-
-      bottom: 20px;
-
-      transform:
-        translateX(-50%);
-
-      width:
-        calc(100% - 30px);
-
-      max-width: 500px;
-
-      background:
-        rgba(20, 20, 20, 0.92);
-
-      backdrop-filter:
-        blur(15px);
-
-      -webkit-backdrop-filter:
-        blur(15px);
-
-      border-radius: 22px;
-
-      padding: 10px;
-
-      display: flex;
-
-      justify-content: space-around;
-
-      align-items: center;
-
-      z-index: 5000;
-
-      box-shadow:
-        0 10px 35px
-        rgba(0, 0, 0, 0.25);
-    }
-
 
     /* =====================================================
-       NAVIGATION BUTTONS
-    ===================================================== */
-
-    .nav-button {
-
-      flex: 1;
-
-      border: none;
-
-      background: transparent;
-
-      color: #aaa;
-
-      padding:
-        10px
-        5px;
-
-      border-radius: 15px;
-
-      font-size: 13px;
-
-      cursor: pointer;
-
-      transition:
-
-        background
-        0.3s
-        ease,
-
-        color
-        0.3s
-        ease,
-
-        transform
-        0.25s
-        ease;
-    }
-
-
-    .nav-button:hover {
-
-      color: white;
-    }
-
-
-    .nav-button:active {
-
-      transform:
-        scale(0.88);
-    }
-
-
-    /* =====================================================
-       NAVIGATION ICON
-    ===================================================== */
-
-    .nav-icon {
-
-      display: block;
-
-      font-size: 22px;
-
-      margin-bottom: 3px;
-    }
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION BUTTON
-    ===================================================== */
-
-    .nav-button.active {
-
-      background: white;
-
-      color: black;
-    }
-
-
-    /* =====================================================
-       MOBILE RESPONSIVE DESIGN
+       MOBILE
     ===================================================== */
 
     @media (max-width: 768px) {
 
 
+      /* TOP NAV */
+
+      .top-nav {
+
+        height:
+          62px;
+
+        padding:
+          0 12px;
+      }
+
+
+      .logo {
+
+        font-size:
+          13px;
+
+        letter-spacing:
+          1px;
+      }
+
+
+      .nav-links {
+
+        gap:
+          2px;
+      }
+
+
+      .nav-button {
+
+        padding:
+          9px 8px;
+
+        font-size:
+          11px;
+
+        border-radius:
+          8px;
+      }
+
+
+
+      /* HOTEL PAGE */
+
       .hotel-page {
 
         padding:
-          60px
+          95px
           18px
-          140px;
+          80px;
       }
 
 
       .hotel-page h1 {
 
-        font-size: 28px;
+        font-size:
+          28px;
 
-        letter-spacing: 2px;
+        letter-spacing:
+          2px;
 
-        line-height: 1.3;
+        line-height:
+          1.3;
       }
 
 
       .subtitle {
 
-        font-size: 15px;
+        font-size:
+          15px;
 
-        line-height: 1.5;
-
-        margin-bottom: 40px;
+        margin-bottom:
+          40px;
       }
 
+
+
+      /* CARDS */
 
       .info-grid {
 
         grid-template-columns:
           1fr;
 
-        gap: 18px;
+        gap:
+          18px;
       }
 
 
       .info-card {
 
-        min-height: 210px;
+        min-height:
+          215px;
 
         padding:
-          30px
-          20px;
-      }
-
-
-      .info-card .icon {
-
-        font-size: 36px;
+          30px 20px;
       }
 
 
       .info-card h2 {
 
-        font-size: 21px;
+        font-size:
+          21px;
       }
 
 
+      .info-card p {
+
+        font-size:
+          14px;
+      }
+
+
+
+      /* ACCESS */
+
       #access {
 
-        margin-top: 60px;
-
-        border-radius: 20px;
+        margin-top:
+          60px;
 
         padding:
-          70px
+          70px 20px;
+
+        border-radius:
           20px;
       }
 
 
       #access h2 {
 
-        font-size: 30px;
+        font-size:
+          30px;
       }
 
+
+
+      /* RESERVATION */
 
       #reservation {
 
         padding:
-          70px
-          20px
-          50px;
+          70px 20px;
       }
 
 
       #reservation h2 {
 
-        font-size: 30px;
-      }
-
-
-      /* Mobile navigation */
-
-      .mobile-nav {
-
-        bottom: 12px;
-
-        width:
-          calc(100% - 24px);
-
-        border-radius: 20px;
-      }
-
-
-      .nav-button {
-
-        font-size: 12px;
-
-        padding:
-          9px
-          4px;
-      }
-
-
-      .nav-icon {
-
-        font-size: 20px;
+        font-size:
+          30px;
       }
 
     }
 
 
+
     /* =====================================================
-       SMALL PHONES
+       VERY SMALL PHONES
     ===================================================== */
 
-    @media (max-width: 380px) {
-
-      .hotel-page h1 {
-
-        font-size: 24px;
-      }
+    @media (max-width: 400px) {
 
 
-      .mobile-nav {
+      .logo {
 
-        width:
-          calc(100% - 16px);
-
-        bottom: 8px;
+        font-size:
+          11px;
       }
 
 
       .nav-button {
 
-        font-size: 11px;
+        padding:
+          8px 5px;
+
+        font-size:
+          10px;
+      }
+
+
+      .hotel-page h1 {
+
+        font-size:
+          24px;
       }
 
     }
@@ -729,6 +816,7 @@
   </style>
 
 </head>
+
 
 
 <body>
@@ -765,21 +853,94 @@
   <div id="main-content">
 
 
-    <div class="hotel-page">
+
+    <!-- =================================================
+         TOP NAVIGATION
+    ================================================= -->
+
+    <nav class="top-nav">
 
 
-      <!-- =================================================
-           HOTEL TITLE
-      ================================================= -->
+      <!-- HOTEL NAME -->
 
-      <h1>
+      <div class="logo">
+
         SHINJUKU CAPSULE HOTEL
-      </h1>
+
+      </div>
 
 
-      <p class="subtitle">
-        Welcome to your stay in the heart of Tokyo
-      </p>
+
+      <!-- NAVIGATION -->
+
+      <div class="nav-links">
+
+
+        <!-- HOME -->
+
+        <button
+          class="nav-button active"
+          onclick="goToSection('home', this)"
+        >
+
+          Home
+
+        </button>
+
+
+
+        <!-- ACCESS -->
+
+        <button
+          class="nav-button"
+          onclick="goToSection('access', this)"
+        >
+
+          Access
+
+        </button>
+
+
+
+        <!-- RESERVATION -->
+
+        <button
+          class="nav-button"
+          onclick="goToSection('reservation', this)"
+        >
+
+          Reservation
+
+        </button>
+
+
+      </div>
+
+
+    </nav>
+
+
+
+    <!-- =================================================
+         HOTEL CONTENT
+    ================================================= -->
+
+    <main class="hotel-page">
+
+
+      <!-- HOTEL TITLE -->
+
+      <section id="home">
+
+        <h1>
+          SHINJUKU CAPSULE HOTEL
+        </h1>
+
+        <p class="subtitle">
+          Welcome to your stay in the heart of Tokyo
+        </p>
+
+      </section>
 
 
 
@@ -938,12 +1099,13 @@
 
         </div>
 
+
       </div>
 
 
 
       <!-- =================================================
-           ACCESS SECTION
+           ACCESS
       ================================================= -->
 
       <section
@@ -967,7 +1129,7 @@
 
 
       <!-- =================================================
-           RESERVATION SECTION
+           RESERVATION
       ================================================= -->
 
       <section
@@ -987,74 +1149,13 @@
           href="#"
           class="reservation-button"
         >
-          Reservation
+          Make a Reservation
         </a>
 
       </section>
 
 
-    </div>
-
-
-
-    <!-- =====================================================
-         MOBILE BOTTOM NAVIGATION
-    ===================================================== -->
-
-    <nav class="mobile-nav">
-
-
-      <!-- HOME -->
-
-      <button
-        class="nav-button active"
-        onclick="goToSection('home', this)"
-      >
-
-        <span class="nav-icon">
-          ⌂
-        </span>
-
-        Home
-
-      </button>
-
-
-
-      <!-- ACCESS -->
-
-      <button
-        class="nav-button"
-        onclick="goToSection('access', this)"
-      >
-
-        <span class="nav-icon">
-          📍
-        </span>
-
-        Access
-
-      </button>
-
-
-
-      <!-- RESERVATION -->
-
-      <button
-        class="nav-button"
-        onclick="goToSection('reservation', this)"
-      >
-
-        <span class="nav-icon">
-          📅
-        </span>
-
-        Reservation
-
-      </button>
-
-
-    </nav>
+    </main>
 
 
   </div>
@@ -1062,27 +1163,33 @@
 
 
   <!-- =====================================================
-       INTRO VIDEO SCRIPT
+       VIDEO SCRIPT
   ===================================================== -->
 
   <script>
 
 
     const intro =
-      document.getElementById("intro");
+      document.getElementById(
+        "intro"
+      );
 
 
     const video =
-      document.getElementById("introVideo");
+      document.getElementById(
+        "introVideo"
+      );
 
 
     const main =
-      document.getElementById("main-content");
+      document.getElementById(
+        "main-content"
+      );
 
 
 
     /* =====================================================
-       WHEN VIDEO FINISHES
+       VIDEO FINISHED
     ===================================================== */
 
     video.addEventListener(
@@ -1097,13 +1204,13 @@
         );
 
 
-        /* Wait for zoom animation */
+        /* Wait for animation */
 
         setTimeout(
           function () {
 
 
-            /* Remove video */
+            /* Hide intro */
 
             intro.style.display =
               "none";
@@ -1115,10 +1222,11 @@
               "block";
 
 
-            /* Animate first cards */
+            /* Show first cards */
 
             setTimeout(
               function () {
+
 
                 document
                   .querySelectorAll(
@@ -1139,11 +1247,13 @@
                           );
 
                         },
-                        index * 100
+                        index * 120
                       );
+
 
                     }
                   );
+
 
               },
               100
@@ -1154,13 +1264,14 @@
           1500
         );
 
+
       }
     );
 
 
 
     /* =====================================================
-       NAVIGATION FUNCTION
+       NAVIGATION
     ===================================================== */
 
     function goToSection(
@@ -1169,7 +1280,7 @@
     ) {
 
 
-      /* Remove active state */
+      /* Remove active */
 
       document
         .querySelectorAll(
@@ -1186,7 +1297,7 @@
         );
 
 
-      /* Activate clicked button */
+      /* Activate selected */
 
       button.classList.add(
         "active"
@@ -1200,6 +1311,7 @@
         section === "home"
       ) {
 
+
         window.scrollTo({
 
           top: 0,
@@ -1208,7 +1320,9 @@
 
         });
 
+
         return;
+
       }
 
 
@@ -1223,13 +1337,17 @@
 
       if (target) {
 
+
         target.scrollIntoView({
 
-          behavior: "smooth",
+          behavior:
+            "smooth",
 
-          block: "start"
+          block:
+            "start"
 
         });
+
 
       }
 
@@ -1238,7 +1356,7 @@
 
 
     /* =====================================================
-       SCROLL FADE ANIMATION
+       FADE-IN ON SCROLL
     ===================================================== */
 
     const fadeElements =
@@ -1275,9 +1393,11 @@
 
         },
 
+
         {
 
-          threshold: 0.15
+          threshold:
+            0.15
 
         }
 
@@ -1297,7 +1417,7 @@
 
 
     /* =====================================================
-       UPDATE NAVIGATION WHILE SCROLLING
+       CHANGE ACTIVE TAB WHEN SCROLLING
     ===================================================== */
 
     window.addEventListener(
@@ -1404,6 +1524,7 @@
           );
 
         }
+
 
       }
     );
