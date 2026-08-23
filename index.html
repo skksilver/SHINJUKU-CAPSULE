@@ -2,16 +2,22 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Shinjuku Capsule Hotel</title>
 
+
   <style>
 
-    /* =========================
+    /* =====================================================
        BASIC PAGE
-    ========================= */
+    ===================================================== */
 
     * {
       margin: 0;
@@ -19,21 +25,30 @@
       box-sizing: border-box;
     }
 
-    html,
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: black;
+      min-height: 100vh;
+
+      background: white;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      overflow-x: hidden;
     }
 
 
-    /* =========================
+    /* =====================================================
        INTRO VIDEO
-    ========================= */
+    ===================================================== */
 
     #intro {
+
       position: fixed;
+
       inset: 0;
 
       width: 100%;
@@ -42,13 +57,16 @@
       background: black;
 
       display: flex;
+
       justify-content: center;
       align-items: center;
 
       z-index: 9999;
     }
 
+
     #intro video {
+
       width: 100%;
       height: 100%;
 
@@ -56,41 +74,655 @@
     }
 
 
-    /* =========================
-       VIDEO END ANIMATION
-    ========================= */
+    /* =====================================================
+       VIDEO END ZOOM ANIMATION
+    ===================================================== */
 
     #intro.zoom-out {
-      animation: zoomOut 1.5s ease-in-out forwards;
+
+      animation:
+        zoomOut
+        1.5s
+        ease-in-out
+        forwards;
     }
+
 
     @keyframes zoomOut {
 
       0% {
+
         opacity: 1;
+
         transform: scale(1);
+
       }
 
       100% {
+
         opacity: 0;
+
         transform: scale(1.15);
+
       }
 
     }
 
 
-    /* =========================
-       BLANK WEBSITE AREA
-    ========================= */
+    /* =====================================================
+       MAIN WEBSITE
+    ===================================================== */
 
     #main-content {
 
       width: 100%;
-      height: 100vh;
+
+      min-height: 100vh;
 
       background: white;
 
       display: none;
+    }
+
+
+    /* =====================================================
+       MAIN HOTEL PAGE
+    ===================================================== */
+
+    .hotel-page {
+
+      width: 100%;
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding:
+
+        80px
+        30px
+        150px;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       HOTEL TITLE
+    ===================================================== */
+
+    .hotel-page h1 {
+
+      font-size: 42px;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 15px;
+
+      color: #111;
+    }
+
+
+    .subtitle {
+
+      font-size: 18px;
+
+      color: #777;
+
+      margin-bottom: 60px;
+    }
+
+
+    /* =====================================================
+       INFORMATION GRID
+    ===================================================== */
+
+    .info-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+
+    /* =====================================================
+       INFORMATION CARDS
+    ===================================================== */
+
+    .info-card {
+
+      background: #f7f7f7;
+
+      padding: 35px 25px;
+
+      border-radius: 18px;
+
+      min-height: 230px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      transition:
+
+        transform
+        0.4s
+        ease,
+
+        box-shadow
+        0.4s
+        ease;
+    }
+
+
+    .info-card:hover {
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.12);
+    }
+
+
+    /* =====================================================
+       CARD ICON
+    ===================================================== */
+
+    .info-card .icon {
+
+      font-size: 40px;
+
+      margin-bottom: 15px;
+    }
+
+
+    /* =====================================================
+       CARD TITLE
+    ===================================================== */
+
+    .info-card h2 {
+
+      font-size: 23px;
+
+      margin-bottom: 12px;
+
+      color: #111;
+    }
+
+
+    /* =====================================================
+       CARD TEXT
+    ===================================================== */
+
+    .info-card p {
+
+      color: #666;
+
+      line-height: 1.6;
+
+      margin-bottom: 15px;
+
+      max-width: 300px;
+    }
+
+
+    .info-card span {
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      color: #333;
+    }
+
+
+    /* =====================================================
+       SCROLL FADE ANIMATION
+    ===================================================== */
+
+    .fade-in {
+
+      opacity: 0;
+
+      transform:
+        translateY(50px);
+
+      transition:
+
+        opacity
+        0.8s
+        ease,
+
+        transform
+        0.8s
+        ease;
+    }
+
+
+    .fade-in.show {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       ACCESS SECTION
+    ===================================================== */
+
+    #access {
+
+      margin-top: 100px;
+
+      padding:
+        90px
+        25px;
+
+      background: #111;
+
+      color: white;
+
+      border-radius: 25px;
+    }
+
+
+    #access h2 {
+
+      font-size: 34px;
+
+      margin-bottom: 20px;
+    }
+
+
+    #access p {
+
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      color: #ccc;
+
+      line-height: 1.8;
+
+      font-size: 16px;
+    }
+
+
+    /* =====================================================
+       RESERVATION SECTION
+    ===================================================== */
+
+    #reservation {
+
+      margin-top: 40px;
+
+      padding:
+        90px
+        25px;
+
+      text-align: center;
+    }
+
+
+    #reservation h2 {
+
+      font-size: 34px;
+
+      margin-bottom: 20px;
+
+      color: #111;
+    }
+
+
+    #reservation p {
+
+      color: #666;
+
+      margin-bottom: 30px;
+    }
+
+
+    /* =====================================================
+       RESERVATION BUTTON
+    ===================================================== */
+
+    .reservation-button {
+
+      display: inline-block;
+
+      padding:
+        15px
+        35px;
+
+      background: black;
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 30px;
+
+      transition:
+
+        transform
+        0.3s
+        ease,
+
+        background
+        0.3s
+        ease;
+    }
+
+
+    .reservation-button:hover {
+
+      transform:
+        scale(1.05);
+
+      background: #333;
+    }
+
+
+    .reservation-button:active {
+
+      transform:
+        scale(0.92);
+    }
+
+
+    /* =====================================================
+       MOBILE BOTTOM NAVIGATION
+    ===================================================== */
+
+    .mobile-nav {
+
+      position: fixed;
+
+      left: 50%;
+
+      bottom: 20px;
+
+      transform:
+        translateX(-50%);
+
+      width:
+        calc(100% - 30px);
+
+      max-width: 500px;
+
+      background:
+        rgba(20, 20, 20, 0.92);
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      border-radius: 22px;
+
+      padding: 10px;
+
+      display: flex;
+
+      justify-content: space-around;
+
+      align-items: center;
+
+      z-index: 5000;
+
+      box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.25);
+    }
+
+
+    /* =====================================================
+       NAVIGATION BUTTONS
+    ===================================================== */
+
+    .nav-button {
+
+      flex: 1;
+
+      border: none;
+
+      background: transparent;
+
+      color: #aaa;
+
+      padding:
+        10px
+        5px;
+
+      border-radius: 15px;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      transition:
+
+        background
+        0.3s
+        ease,
+
+        color
+        0.3s
+        ease,
+
+        transform
+        0.25s
+        ease;
+    }
+
+
+    .nav-button:hover {
+
+      color: white;
+    }
+
+
+    .nav-button:active {
+
+      transform:
+        scale(0.88);
+    }
+
+
+    /* =====================================================
+       NAVIGATION ICON
+    ===================================================== */
+
+    .nav-icon {
+
+      display: block;
+
+      font-size: 22px;
+
+      margin-bottom: 3px;
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION BUTTON
+    ===================================================== */
+
+    .nav-button.active {
+
+      background: white;
+
+      color: black;
+    }
+
+
+    /* =====================================================
+       MOBILE RESPONSIVE DESIGN
+    ===================================================== */
+
+    @media (max-width: 768px) {
+
+
+      .hotel-page {
+
+        padding:
+          60px
+          18px
+          140px;
+      }
+
+
+      .hotel-page h1 {
+
+        font-size: 28px;
+
+        letter-spacing: 2px;
+
+        line-height: 1.3;
+      }
+
+
+      .subtitle {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+        margin-bottom: 40px;
+      }
+
+
+      .info-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 18px;
+      }
+
+
+      .info-card {
+
+        min-height: 210px;
+
+        padding:
+          30px
+          20px;
+      }
+
+
+      .info-card .icon {
+
+        font-size: 36px;
+      }
+
+
+      .info-card h2 {
+
+        font-size: 21px;
+      }
+
+
+      #access {
+
+        margin-top: 60px;
+
+        border-radius: 20px;
+
+        padding:
+          70px
+          20px;
+      }
+
+
+      #access h2 {
+
+        font-size: 30px;
+      }
+
+
+      #reservation {
+
+        padding:
+          70px
+          20px
+          50px;
+      }
+
+
+      #reservation h2 {
+
+        font-size: 30px;
+      }
+
+
+      /* Mobile navigation */
+
+      .mobile-nav {
+
+        bottom: 12px;
+
+        width:
+          calc(100% - 24px);
+
+        border-radius: 20px;
+      }
+
+
+      .nav-button {
+
+        font-size: 12px;
+
+        padding:
+          9px
+          4px;
+      }
+
+
+      .nav-icon {
+
+        font-size: 20px;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL PHONES
+    ===================================================== */
+
+    @media (max-width: 380px) {
+
+      .hotel-page h1 {
+
+        font-size: 24px;
+      }
+
+
+      .mobile-nav {
+
+        width:
+          calc(100% - 16px);
+
+        bottom: 8px;
+      }
+
+
+      .nav-button {
+
+        font-size: 11px;
+      }
 
     }
 
@@ -102,9 +734,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =====================================================
        INTRO VIDEO
-  ========================= -->
+  ===================================================== -->
 
   <div id="intro">
 
@@ -125,159 +757,713 @@
   </div>
 
 
-  <!-- =========================
-       BLANK WEBSITE
-       
-       WE WILL BUILD EVERYTHING HERE
-       ========================= -->
 
- <!-- =========================
-     HOTEL INFORMATION
-========================= -->
+  <!-- =====================================================
+       MAIN WEBSITE
+  ===================================================== -->
 
-<div id="main-content">
+  <div id="main-content">
 
-  <div class="hotel-page">
 
-    <h1>SHINJUKU CAPSULE HOTEL</h1>
+    <div class="hotel-page">
 
-    <p class="subtitle">
-      Welcome to your stay in the heart of Tokyo
-    </p>
 
-    <div class="info-grid">
+      <!-- =================================================
+           HOTEL TITLE
+      ================================================= -->
 
-      <!-- Check-in -->
-      <div class="info-card">
-        <div class="icon">🕐</div>
-        <h2>Check-in</h2>
-        <p>
-          Please check in at the reception upon arrival.
-        </p>
-        <span>Check-in time: [TIME]</span>
+      <h1>
+        SHINJUKU CAPSULE HOTEL
+      </h1>
+
+
+      <p class="subtitle">
+        Welcome to your stay in the heart of Tokyo
+      </p>
+
+
+
+      <!-- =================================================
+           HOTEL INFORMATION
+      ================================================= -->
+
+      <div class="info-grid">
+
+
+        <!-- CHECK-IN -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            🕐
+          </div>
+
+          <h2>
+            Check-in
+          </h2>
+
+          <p>
+            Please check in at the reception
+            upon arrival.
+          </p>
+
+          <span>
+            Check-in time: [TIME]
+          </span>
+
+        </div>
+
+
+
+        <!-- CHECK-OUT -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            🚪
+          </div>
+
+          <h2>
+            Check-out
+          </h2>
+
+          <p>
+            Please complete your check-out
+            at reception before leaving.
+          </p>
+
+          <span>
+            Check-out time: [TIME]
+          </span>
+
+        </div>
+
+
+
+        <!-- WI-FI -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            📶
+          </div>
+
+          <h2>
+            Free Wi-Fi
+          </h2>
+
+          <p>
+            Complimentary Wi-Fi is available
+            throughout the hotel.
+          </p>
+
+          <span>
+            Network: [WIFI NAME]
+          </span>
+
+        </div>
+
+
+
+        <!-- RECEPTION -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            🏨
+          </div>
+
+          <h2>
+            Reception
+          </h2>
+
+          <p>
+            Our reception team is available
+            to assist you during your stay.
+          </p>
+
+          <span>
+            Reception: [HOURS]
+          </span>
+
+        </div>
+
+
+
+        <!-- FACILITIES -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            ✨
+          </div>
+
+          <h2>
+            Facilities
+          </h2>
+
+          <p>
+            Enjoy our comfortable facilities
+            during your stay.
+          </p>
+
+          <span>
+            Capsules • Lounge • [OTHER]
+          </span>
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+
+        <div class="info-card fade-in">
+
+          <div class="icon">
+            📍
+          </div>
+
+          <h2>
+            Location
+          </h2>
+
+          <p>
+            Conveniently located in
+            Shinjuku, Tokyo.
+          </p>
+
+          <span>
+            [HOTEL ADDRESS]
+          </span>
+
+        </div>
+
       </div>
 
-      <!-- Check-out -->
-      <div class="info-card">
-        <div class="icon">🚪</div>
-        <h2>Check-out</h2>
-        <p>
-          Please complete your check-out at reception before leaving.
-        </p>
-        <span>Check-out time: [TIME]</span>
-      </div>
 
-      <!-- Wi-Fi -->
-      <div class="info-card">
-        <div class="icon">📶</div>
-        <h2>Free Wi-Fi</h2>
-        <p>
-          Complimentary Wi-Fi is available throughout the hotel.
-        </p>
-        <span>Network: [WIFI NAME]</span>
-      </div>
 
-      <!-- Reception -->
-      <div class="info-card">
-        <div class="icon">🏨</div>
-        <h2>Reception</h2>
-        <p>
-          Our reception team is available to assist you during your stay.
-        </p>
-        <span>Reception: [HOURS]</span>
-      </div>
+      <!-- =================================================
+           ACCESS SECTION
+      ================================================= -->
 
-      <!-- Facilities -->
-      <div class="info-card">
-        <div class="icon">✨</div>
-        <h2>Facilities</h2>
-        <p>
-          Enjoy our comfortable facilities during your stay.
-        </p>
-        <span>Capsules • Lounge • [OTHER]</span>
-      </div>
+      <section
+        id="access"
+        class="fade-in"
+      >
 
-      <!-- Location -->
-      <div class="info-card">
-        <div class="icon">📍</div>
-        <h2>Location</h2>
+        <h2>
+          Access
+        </h2>
+
         <p>
-          Conveniently located in Shinjuku, Tokyo.
+          Our hotel is conveniently located
+          in Shinjuku, making it easy to access
+          trains, shopping areas, restaurants
+          and popular Tokyo attractions.
         </p>
-        <span>[HOTEL ADDRESS]</span>
-      </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           RESERVATION SECTION
+      ================================================= -->
+
+      <section
+        id="reservation"
+        class="fade-in"
+      >
+
+        <h2>
+          Reservation
+        </h2>
+
+        <p>
+          Need to make or check a reservation?
+        </p>
+
+        <a
+          href="#"
+          class="reservation-button"
+        >
+          Reservation
+        </a>
+
+      </section>
+
 
     </div>
 
+
+
+    <!-- =====================================================
+         MOBILE BOTTOM NAVIGATION
+    ===================================================== -->
+
+    <nav class="mobile-nav">
+
+
+      <!-- HOME -->
+
+      <button
+        class="nav-button active"
+        onclick="goToSection('home', this)"
+      >
+
+        <span class="nav-icon">
+          ⌂
+        </span>
+
+        Home
+
+      </button>
+
+
+
+      <!-- ACCESS -->
+
+      <button
+        class="nav-button"
+        onclick="goToSection('access', this)"
+      >
+
+        <span class="nav-icon">
+          📍
+        </span>
+
+        Access
+
+      </button>
+
+
+
+      <!-- RESERVATION -->
+
+      <button
+        class="nav-button"
+        onclick="goToSection('reservation', this)"
+      >
+
+        <span class="nav-icon">
+          📅
+        </span>
+
+        Reservation
+
+      </button>
+
+
+    </nav>
+
+
   </div>
 
-</div>
 
 
-  <!-- =========================
-       INTRO SCRIPT
-  ========================= -->
+  <!-- =====================================================
+       INTRO VIDEO SCRIPT
+  ===================================================== -->
 
   <script>
 
-    const intro = document.getElementById("intro");
 
-    const video = document.getElementById("introVideo");
-
-    const main = document.getElementById("main-content");
+    const intro =
+      document.getElementById("intro");
 
 
-    video.addEventListener("ended", function () {
-
-      /* Start zoom animation */
-
-      intro.classList.add("zoom-out");
+    const video =
+      document.getElementById("introVideo");
 
 
-      /* Wait for animation to finish */
-
-      setTimeout(function () {
-
-        /* Remove video completely */
-
-        intro.style.display = "none";
+    const main =
+      document.getElementById("main-content");
 
 
-        /* Show blank website */
 
-        main.style.display = "block";
+    /* =====================================================
+       WHEN VIDEO FINISHES
+    ===================================================== */
 
-      }, 1500);
+    video.addEventListener(
+      "ended",
+      function () {
 
-    });
+
+        /* Start zoom animation */
+
+        intro.classList.add(
+          "zoom-out"
+        );
+
+
+        /* Wait for zoom animation */
+
+        setTimeout(
+          function () {
+
+
+            /* Remove video */
+
+            intro.style.display =
+              "none";
+
+
+            /* Show website */
+
+            main.style.display =
+              "block";
+
+
+            /* Animate first cards */
+
+            setTimeout(
+              function () {
+
+                document
+                  .querySelectorAll(
+                    ".fade-in"
+                  )
+                  .forEach(
+                    function (
+                      element,
+                      index
+                    ) {
+
+
+                      setTimeout(
+                        function () {
+
+                          element.classList.add(
+                            "show"
+                          );
+
+                        },
+                        index * 100
+                      );
+
+                    }
+                  );
+
+              },
+              100
+            );
+
+
+          },
+          1500
+        );
+
+      }
+    );
+
+
+
+    /* =====================================================
+       NAVIGATION FUNCTION
+    ===================================================== */
+
+    function goToSection(
+      section,
+      button
+    ) {
+
+
+      /* Remove active state */
+
+      document
+        .querySelectorAll(
+          ".nav-button"
+        )
+        .forEach(
+          function (btn) {
+
+            btn.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+      /* Activate clicked button */
+
+      button.classList.add(
+        "active"
+      );
+
+
+
+      /* HOME */
+
+      if (
+        section === "home"
+      ) {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+        return;
+      }
+
+
+
+      /* ACCESS / RESERVATION */
+
+      const target =
+        document.getElementById(
+          section
+        );
+
+
+      if (target) {
+
+        target.scrollIntoView({
+
+          behavior: "smooth",
+
+          block: "start"
+
+        });
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       SCROLL FADE ANIMATION
+    ===================================================== */
+
+    const fadeElements =
+      document.querySelectorAll(
+        ".fade-in"
+      );
+
+
+    const observer =
+      new IntersectionObserver(
+
+        function (entries) {
+
+
+          entries.forEach(
+            function (entry) {
+
+
+              if (
+                entry.isIntersecting
+              ) {
+
+
+                entry.target.classList.add(
+                  "show"
+                );
+
+
+              }
+
+            }
+          );
+
+
+        },
+
+        {
+
+          threshold: 0.15
+
+        }
+
+      );
+
+
+    fadeElements.forEach(
+      function (element) {
+
+        observer.observe(
+          element
+        );
+
+      }
+    );
+
+
+
+    /* =====================================================
+       UPDATE NAVIGATION WHILE SCROLLING
+    ===================================================== */
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+
+        const access =
+          document.getElementById(
+            "access"
+          );
+
+
+        const reservation =
+          document.getElementById(
+            "reservation"
+          );
+
+
+        const scrollPosition =
+          window.scrollY +
+          window.innerHeight / 3;
+
+
+        const buttons =
+          document.querySelectorAll(
+            ".nav-button"
+          );
+
+
+
+        /* RESERVATION */
+
+        if (
+          reservation &&
+          scrollPosition >=
+            reservation.offsetTop
+        ) {
+
+
+          buttons.forEach(
+            function (btn) {
+
+              btn.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          buttons[2].classList.add(
+            "active"
+          );
+
+        }
+
+
+        /* ACCESS */
+
+        else if (
+          access &&
+          scrollPosition >=
+            access.offsetTop
+        ) {
+
+
+          buttons.forEach(
+            function (btn) {
+
+              btn.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          buttons[1].classList.add(
+            "active"
+          );
+
+        }
+
+
+        /* HOME */
+
+        else {
+
+
+          buttons.forEach(
+            function (btn) {
+
+              btn.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          buttons[0].classList.add(
+            "active"
+          );
+
+        }
+
+      }
+    );
 
   </script>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        TAWK.TO CHAT
-  ========================= -->
+  ===================================================== -->
 
   <script type="text/javascript">
 
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
+
+    var Tawk_API =
+      Tawk_API || {};
+
+
+    var Tawk_LoadStart =
+      new Date();
+
 
     (function () {
 
-      var s1 = document.createElement("script");
-      var s0 = document.getElementsByTagName("script")[0];
+
+      var s1 =
+        document.createElement(
+          "script"
+        );
+
+
+      var s0 =
+        document.getElementsByTagName(
+          "script"
+        )[0];
+
 
       s1.async = true;
 
+
       s1.src =
-        'https://embed.tawk.to/6a88384ef23b8e344b486729/1k0i1nteq';
+        "https://embed.tawk.to/6a88384ef23b8e344b486729/1k0i1nteq";
 
-      s1.charset = 'UTF-8';
 
-      s1.setAttribute('crossorigin', '*');
+      s1.charset =
+        "UTF-8";
 
-      s0.parentNode.insertBefore(s1, s0);
+
+      s1.setAttribute(
+        "crossorigin",
+        "*"
+      );
+
+
+      s0.parentNode.insertBefore(
+        s1,
+        s0
+      );
+
 
     })();
 
