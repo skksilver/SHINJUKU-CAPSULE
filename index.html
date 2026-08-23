@@ -320,7 +320,7 @@
 
 
     /* =====================================================
-       FEATURE HERO SLIDESHOW WITH SC LOGO OVERLAY
+       FEATURE HERO SLIDESHOW WITH LOGO IMAGE OVERLAY
     ===================================================== */
 
     .sc-hero-container {
@@ -373,7 +373,7 @@
     }
 
 
-    /* Dark Overlay for SC Text Visibility */
+    /* Dark Overlay for Logo Contrast */
 
     .hero-overlay {
 
@@ -393,7 +393,7 @@
     }
 
 
-    /* SC Overlay Logo Text */
+    /* SC Overlay Logo Image */
 
     .sc-brand-overlay {
 
@@ -407,15 +407,13 @@
 
       z-index: 3;
 
-      color: #ffffff;
+      max-width: 220px;
 
-      font-size: 110px;
+      width: 100%;
 
-      font-weight: 900;
+      height: auto;
 
-      letter-spacing: 12px;
-
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
 
       pointer-events: none;
 
@@ -820,9 +818,7 @@
 
       .sc-brand-overlay {
 
-        font-size: 65px;
-
-        letter-spacing: 6px;
+        max-width: 150px;
       }
 
 
@@ -943,9 +939,7 @@
 
       .sc-brand-overlay {
 
-        font-size: 50px;
-
-        letter-spacing: 4px;
+        max-width: 120px;
       }
 
     }
@@ -1077,13 +1071,17 @@
           Welcome to your stay in the heart of Tokyo
         </p>
 
-        <!-- MAIN HERO SLIDESHOW CONTAINER WITH OVERLAY SC LOGO -->
+        <!-- MAIN HERO SLIDESHOW CONTAINER WITH OVERLAY SC LOGO IMAGE -->
 
         <div class="sc-hero-container fade-in">
 
           <div class="hero-overlay"></div>
 
-          <div class="sc-brand-overlay">SC</div>
+          <img
+            src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/logo.png"
+            alt="SC Logo"
+            class="sc-brand-overlay"
+          >
 
           <img
             src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/7%20f%20capsule.jpg"
