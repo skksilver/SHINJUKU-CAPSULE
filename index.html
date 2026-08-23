@@ -291,7 +291,7 @@
 
 
     /* =====================================================
-       TITLE & MIDDLE LOGO IMAGE
+       TITLE & SUBTITLE
     ===================================================== */
 
     .hotel-page h1 {
@@ -317,18 +317,109 @@
       margin-bottom: 35px;
     }
 
-    .sc-logo-container {
 
-      margin-bottom: 60px;
+
+    /* =====================================================
+       FEATURE HERO SLIDESHOW WITH SC LOGO OVERLAY
+    ===================================================== */
+
+    .sc-hero-container {
+
+      position: relative;
+
+      width: 100%;
+
+      max-width: 900px;
+
+      height: 450px;
+
+      margin: 0 auto 60px auto;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+      background: #111;
     }
 
-    .sc-logo-img {
 
-      max-width: 180px;
+    /* Background Slideshow Images */
 
-      height: auto;
+    .slideshow-slide {
 
-      display: inline-block;
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      opacity: 0;
+
+      transition: opacity 1.2s ease-in-out;
+    }
+
+
+    .slideshow-slide.active-slide {
+
+      opacity: 1;
+    }
+
+
+    /* Dark Overlay for SC Text Visibility */
+
+    .hero-overlay {
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      background: rgba(0, 0, 0, 0.35);
+
+      z-index: 2;
+    }
+
+
+    /* SC Overlay Logo Text */
+
+    .sc-brand-overlay {
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      z-index: 3;
+
+      color: #ffffff;
+
+      font-size: 110px;
+
+      font-weight: 900;
+
+      letter-spacing: 12px;
+
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+
+      pointer-events: none;
+
+      user-select: none;
     }
 
 
@@ -632,7 +723,7 @@
 
 
     /* =====================================================
-       MOBILE
+       MOBILE RESPONSIVENESS
     ===================================================== */
 
     @media (max-width: 768px) {
@@ -714,10 +805,24 @@
           30px;
       }
 
-      .sc-logo-img {
 
-        max-width:
-          140px;
+      /* HERO SLIDESHOW MOBILE */
+
+      .sc-hero-container {
+
+        height: 300px;
+
+        margin-bottom: 40px;
+
+        border-radius: 16px;
+      }
+
+
+      .sc-brand-overlay {
+
+        font-size: 65px;
+
+        letter-spacing: 6px;
       }
 
 
@@ -829,6 +934,18 @@
 
         font-size:
           24px;
+      }
+
+      .sc-hero-container {
+
+        height: 240px;
+      }
+
+      .sc-brand-overlay {
+
+        font-size: 50px;
+
+        letter-spacing: 4px;
       }
 
     }
@@ -948,7 +1065,7 @@
     <main class="hotel-page">
 
 
-      <!-- HOTEL TITLE & MIDDLE SC LOGO -->
+      <!-- HOTEL TITLE & SLIDESHOW HERO SECTION -->
 
       <section id="home">
 
@@ -960,14 +1077,36 @@
           Welcome to your stay in the heart of Tokyo
         </p>
 
-        <!-- SC LOGO IMAGE (FADES IN) -->
+        <!-- MAIN HERO SLIDESHOW CONTAINER WITH OVERLAY SC LOGO -->
 
-        <div class="sc-logo-container fade-in">
+        <div class="sc-hero-container fade-in">
+
+          <div class="hero-overlay"></div>
+
+          <div class="sc-brand-overlay">SC</div>
 
           <img
-            src="logo.png"
-            alt="SC Logo"
-            class="sc-logo-img"
+            src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/7%20f%20capsule.jpg"
+            alt="7F Capsule Area"
+            class="slideshow-slide active-slide"
+          >
+
+          <img
+            src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/IMG_2368.jpeg"
+            alt="Capsule Room View"
+            class="slideshow-slide"
+          >
+
+          <img
+            src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/sauna%20shower.jpg"
+            alt="Sauna Shower Room"
+            class="slideshow-slide"
+          >
+
+          <img
+            src="https://raw.githubusercontent.com/skksilver/SHINJUKU-CAPSULE/main/suna.jpg"
+            alt="Sauna Area"
+            class="slideshow-slide"
           >
 
         </div>
@@ -1195,7 +1334,7 @@
 
 
   <!-- =====================================================
-       VIDEO SCRIPT
+       SCRIPTS
   ===================================================== -->
 
   <script>
@@ -1227,7 +1366,7 @@
 
 
     /* =====================================================
-       VIDEO FINISHED
+       INTRO VIDEO CONTROLLER
     ===================================================== */
 
     video.addEventListener(
@@ -1235,38 +1374,26 @@
       function () {
 
 
-        /* Start zoom animation */
-
         intro.classList.add(
           "zoom-out"
         );
 
 
-        /* Wait for animation */
-
         setTimeout(
           function () {
 
-
-            /* Hide intro */
 
             intro.style.display =
               "none";
 
 
-            /* Show website */
-
             main.style.display =
               "block";
 
 
-            /* Show top navigation */
-
             topNav.style.display =
               "flex";
 
-
-            /* Show first cards & SC logo */
 
             setTimeout(
               function () {
@@ -1315,7 +1442,33 @@
 
 
     /* =====================================================
-       NAVIGATION
+       AUTO-SCROLLING SLIDESHOW (4 SECONDS)
+    ===================================================== */
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".slideshow-slide");
+
+
+    function nextSlide() {
+
+      if (!slides || slides.length === 0) return;
+
+      slides[currentSlide].classList.remove("active-slide");
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.add("active-slide");
+
+    }
+
+
+    setInterval(nextSlide, 4000);
+
+
+
+    /* =====================================================
+       NAVIGATION CONTROLLER
     ===================================================== */
 
     function goToSection(
@@ -1323,8 +1476,6 @@
       button
     ) {
 
-
-      /* Remove active */
 
       document
         .querySelectorAll(
@@ -1341,15 +1492,11 @@
         );
 
 
-      /* Activate selected */
-
       button.classList.add(
         "active"
       );
 
 
-
-      /* HOME */
 
       if (
         section === "home"
@@ -1370,8 +1517,6 @@
       }
 
 
-
-      /* ACCESS / RESERVATION */
 
       const target =
         document.getElementById(
@@ -1461,7 +1606,7 @@
 
 
     /* =====================================================
-       CHANGE ACTIVE TAB WHEN SCROLLING
+       CHANGE ACTIVE NAV TAB ON SCROLL
     ===================================================== */
 
     window.addEventListener(
@@ -1493,8 +1638,6 @@
 
 
 
-        /* RESERVATION */
-
         if (
           reservation &&
           scrollPosition >=
@@ -1520,8 +1663,6 @@
         }
 
 
-        /* ACCESS */
-
         else if (
           access &&
           scrollPosition >=
@@ -1546,8 +1687,6 @@
 
         }
 
-
-        /* HOME */
 
         else {
 
