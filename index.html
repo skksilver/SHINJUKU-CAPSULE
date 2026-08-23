@@ -160,7 +160,6 @@
       -webkit-backdrop-filter:
         blur(15px);
 
-      /* HIDE NAV BAR & LOGO DURING INTRO */
       display: none;
 
       align-items: center;
@@ -292,7 +291,7 @@
 
 
     /* =====================================================
-       TITLE
+       TITLE & MIDDLE LOGO IMAGE
     ===================================================== */
 
     .hotel-page h1 {
@@ -315,7 +314,21 @@
 
       line-height: 1.6;
 
-      margin-bottom: 65px;
+      margin-bottom: 35px;
+    }
+
+    .sc-logo-container {
+
+      margin-bottom: 60px;
+    }
+
+    .sc-logo-img {
+
+      max-width: 180px;
+
+      height: auto;
+
+      display: inline-block;
     }
 
 
@@ -698,7 +711,13 @@
           15px;
 
         margin-bottom:
-          40px;
+          30px;
+      }
+
+      .sc-logo-img {
+
+        max-width:
+          140px;
       }
 
 
@@ -929,7 +948,7 @@
     <main class="hotel-page">
 
 
-      <!-- HOTEL TITLE -->
+      <!-- HOTEL TITLE & MIDDLE SC LOGO -->
 
       <section id="home">
 
@@ -940,6 +959,18 @@
         <p class="subtitle">
           Welcome to your stay in the heart of Tokyo
         </p>
+
+        <!-- SC LOGO IMAGE (FADES IN) -->
+
+        <div class="sc-logo-container fade-in">
+
+          <img
+            src="logo.png"
+            alt="SC Logo"
+            class="sc-logo-img"
+          >
+
+        </div>
 
       </section>
 
@@ -1229,13 +1260,13 @@
               "block";
 
 
-            /* Show top navigation & logo */
+            /* Show top navigation */
 
             topNav.style.display =
               "flex";
 
 
-            /* Show first cards */
+            /* Show first cards & SC logo */
 
             setTimeout(
               function () {
