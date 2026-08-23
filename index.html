@@ -269,10 +269,20 @@
 
 
     /* =====================================================
-       MAIN HOTEL CONTENT
+       MAIN HOTEL CONTENT CONTAINER
     ===================================================== */
 
     .hotel-page {
+
+      width: 100%;
+
+      padding-top: 100px;
+
+      text-align: center;
+    }
+
+
+    .content-wrapper {
 
       width: 100%;
 
@@ -280,12 +290,7 @@
 
       margin: 0 auto;
 
-      padding:
-        120px
-        30px
-        100px;
-
-      text-align: center;
+      padding: 0 30px 100px;
     }
 
 
@@ -294,7 +299,13 @@
        TITLE & SUBTITLE
     ===================================================== */
 
-    .hotel-page h1 {
+    .hero-header {
+
+      padding: 20px 20px 30px;
+    }
+
+
+    .hero-header h1 {
 
       font-size: 44px;
 
@@ -313,35 +324,37 @@
       font-size: 18px;
 
       line-height: 1.6;
-
-      margin-bottom: 35px;
     }
 
 
 
     /* =====================================================
-       FEATURE HERO SLIDESHOW WITH LOGO IMAGE OVERLAY
+       FULL-WIDTH HERO SLIDESHOW (NO CURVES)
     ===================================================== */
 
     .sc-hero-container {
 
       position: relative;
 
-      width: 100%;
+      width: 100vw;
 
-      max-width: 900px;
+      left: 50%;
 
-      height: 450px;
+      right: 50%;
 
-      margin: 0 auto 60px auto;
+      margin-left: -50vw;
 
-      border-radius: 20px;
+      margin-right: -50vw;
+
+      height: 520px;
+
+      margin-bottom: 70px;
+
+      border-radius: 0;
 
       overflow: hidden;
 
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-
-      background: #111;
+      background: #000;
     }
 
 
@@ -373,7 +386,7 @@
     }
 
 
-    /* Dark Overlay for Logo Contrast */
+    /* Darker Overlay for High SC Logo Visibility */
 
     .hero-overlay {
 
@@ -387,13 +400,13 @@
 
       height: 100%;
 
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.55);
 
       z-index: 2;
     }
 
 
-    /* SC Overlay Logo Image */
+    /* Bigger SC Overlay Logo Image */
 
     .sc-brand-overlay {
 
@@ -407,13 +420,13 @@
 
       z-index: 3;
 
-      max-width: 220px;
+      max-width: 380px;
 
-      width: 100%;
+      width: 80%;
 
       height: auto;
 
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
 
       pointer-events: none;
 
@@ -774,14 +787,21 @@
 
       .hotel-page {
 
+        padding-top:
+          80px;
+      }
+
+
+      .content-wrapper {
+
         padding:
-          95px
+          0
           18px
           80px;
       }
 
 
-      .hotel-page h1 {
+      .hero-header h1 {
 
         font-size:
           28px;
@@ -798,9 +818,6 @@
 
         font-size:
           15px;
-
-        margin-bottom:
-          30px;
       }
 
 
@@ -808,17 +825,15 @@
 
       .sc-hero-container {
 
-        height: 300px;
+        height: 340px;
 
         margin-bottom: 40px;
-
-        border-radius: 16px;
       }
 
 
       .sc-brand-overlay {
 
-        max-width: 150px;
+        max-width: 240px;
       }
 
 
@@ -926,7 +941,7 @@
       }
 
 
-      .hotel-page h1 {
+      .hero-header h1 {
 
         font-size:
           24px;
@@ -934,12 +949,12 @@
 
       .sc-hero-container {
 
-        height: 240px;
+        height: 280px;
       }
 
       .sc-brand-overlay {
 
-        max-width: 120px;
+        max-width: 190px;
       }
 
     }
@@ -1059,19 +1074,23 @@
     <main class="hotel-page">
 
 
-      <!-- HOTEL TITLE & SLIDESHOW HERO SECTION -->
+      <!-- HOTEL TITLE & FULL-WIDTH SLIDESHOW HERO SECTION -->
 
       <section id="home">
 
-        <h1>
-          SHINJUKU CAPSULE HOTEL
-        </h1>
+        <div class="hero-header">
 
-        <p class="subtitle">
-          Welcome to your stay in the heart of Tokyo
-        </p>
+          <h1>
+            SHINJUKU CAPSULE HOTEL
+          </h1>
 
-        <!-- MAIN HERO SLIDESHOW CONTAINER WITH OVERLAY SC LOGO IMAGE -->
+          <p class="subtitle">
+            Welcome to your stay in the heart of Tokyo
+          </p>
+
+        </div>
+
+        <!-- EDGE-TO-EDGE HERO SLIDESHOW CONTAINER (NO CURVES) -->
 
         <div class="sc-hero-container fade-in">
 
@@ -1113,216 +1132,221 @@
 
 
 
-      <!-- =================================================
-           HOTEL INFORMATION
-      ================================================= -->
-
-      <div class="info-grid">
+      <div class="content-wrapper">
 
 
-        <!-- CHECK-IN -->
+        <!-- =================================================
+             HOTEL INFORMATION
+        ================================================= -->
 
-        <div class="info-card fade-in">
+        <div class="info-grid">
 
-          <div class="icon">
-            🕐
+
+          <!-- CHECK-IN -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              🕐
+            </div>
+
+            <h2>
+              Check-in
+            </h2>
+
+            <p>
+              Please check in at the reception
+              upon arrival.
+            </p>
+
+            <span>
+              Check-in time: [TIME]
+            </span>
+
           </div>
 
-          <h2>
-            Check-in
-          </h2>
 
-          <p>
-            Please check in at the reception
-            upon arrival.
-          </p>
 
-          <span>
-            Check-in time: [TIME]
-          </span>
+          <!-- CHECK-OUT -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              🚪
+            </div>
+
+            <h2>
+              Check-out
+            </h2>
+
+            <p>
+              Please complete your check-out
+              at reception before leaving.
+            </p>
+
+            <span>
+              Check-out time: [TIME]
+            </span>
+
+          </div>
+
+
+
+          <!-- WI-FI -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              📶
+            </div>
+
+            <h2>
+              Free Wi-Fi
+            </h2>
+
+            <p>
+              Complimentary Wi-Fi is available
+              throughout the hotel.
+            </p>
+
+            <span>
+              Network: [WIFI NAME]
+            </span>
+
+          </div>
+
+
+
+          <!-- RECEPTION -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              🏨
+            </div>
+
+            <h2>
+              Reception
+            </h2>
+
+            <p>
+              Our reception team is available
+              to assist you during your stay.
+            </p>
+
+            <span>
+              Reception: [HOURS]
+            </span>
+
+          </div>
+
+
+
+          <!-- FACILITIES -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              ✨
+            </div>
+
+            <h2>
+              Facilities
+            </h2>
+
+            <p>
+              Enjoy our comfortable facilities
+              during your stay.
+            </p>
+
+            <span>
+              Capsules • Lounge • [OTHER]
+            </span>
+
+          </div>
+
+
+
+          <!-- LOCATION -->
+
+          <div class="info-card fade-in">
+
+            <div class="icon">
+              📍
+            </div>
+
+            <h2>
+              Location
+            </h2>
+
+            <p>
+              Conveniently located in
+              Shinjuku, Tokyo.
+            </p>
+
+            <span>
+              [HOTEL ADDRESS]
+            </span>
+
+          </div>
+
 
         </div>
 
 
 
-        <!-- CHECK-OUT -->
+        <!-- =================================================
+             ACCESS
+        ================================================= -->
 
-        <div class="info-card fade-in">
-
-          <div class="icon">
-            🚪
-          </div>
+        <section
+          id="access"
+          class="fade-in"
+        >
 
           <h2>
-            Check-out
+            Access
           </h2>
 
           <p>
-            Please complete your check-out
-            at reception before leaving.
+            Our hotel is conveniently located
+            in Shinjuku, making it easy to access
+            trains, shopping areas, restaurants
+            and popular Tokyo attractions.
           </p>
 
-          <span>
-            Check-out time: [TIME]
-          </span>
-
-        </div>
+        </section>
 
 
 
-        <!-- WI-FI -->
+        <!-- =================================================
+             RESERVATION
+        ================================================= -->
 
-        <div class="info-card fade-in">
-
-          <div class="icon">
-            📶
-          </div>
+        <section
+          id="reservation"
+          class="fade-in"
+        >
 
           <h2>
-            Free Wi-Fi
+            Reservation
           </h2>
 
           <p>
-            Complimentary Wi-Fi is available
-            throughout the hotel.
+            Need to make or check a reservation?
           </p>
 
-          <span>
-            Network: [WIFI NAME]
-          </span>
+          <a
+            href="#"
+            class="reservation-button"
+          >
+            Make a Reservation
+          </a>
 
-        </div>
-
-
-
-        <!-- RECEPTION -->
-
-        <div class="info-card fade-in">
-
-          <div class="icon">
-            🏨
-          </div>
-
-          <h2>
-            Reception
-          </h2>
-
-          <p>
-            Our reception team is available
-            to assist you during your stay.
-          </p>
-
-          <span>
-            Reception: [HOURS]
-          </span>
-
-        </div>
-
-
-
-        <!-- FACILITIES -->
-
-        <div class="info-card fade-in">
-
-          <div class="icon">
-            ✨
-          </div>
-
-          <h2>
-            Facilities
-          </h2>
-
-          <p>
-            Enjoy our comfortable facilities
-            during your stay.
-          </p>
-
-          <span>
-            Capsules • Lounge • [OTHER]
-          </span>
-
-        </div>
-
-
-
-        <!-- LOCATION -->
-
-        <div class="info-card fade-in">
-
-          <div class="icon">
-            📍
-          </div>
-
-          <h2>
-            Location
-          </h2>
-
-          <p>
-            Conveniently located in
-            Shinjuku, Tokyo.
-          </p>
-
-          <span>
-            [HOTEL ADDRESS]
-          </span>
-
-        </div>
+        </section>
 
 
       </div>
-
-
-
-      <!-- =================================================
-           ACCESS
-      ================================================= -->
-
-      <section
-        id="access"
-        class="fade-in"
-      >
-
-        <h2>
-          Access
-        </h2>
-
-        <p>
-          Our hotel is conveniently located
-          in Shinjuku, making it easy to access
-          trains, shopping areas, restaurants
-          and popular Tokyo attractions.
-        </p>
-
-      </section>
-
-
-
-      <!-- =================================================
-           RESERVATION
-      ================================================= -->
-
-      <section
-        id="reservation"
-        class="fade-in"
-      >
-
-        <h2>
-          Reservation
-        </h2>
-
-        <p>
-          Need to make or check a reservation?
-        </p>
-
-        <a
-          href="#"
-          class="reservation-button"
-        >
-          Make a Reservation
-        </a>
-
-      </section>
-
 
     </main>
 
